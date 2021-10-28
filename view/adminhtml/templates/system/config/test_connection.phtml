@@ -1,0 +1,27 @@
+<?php
+use Magento\Framework\Escaper;
+use PerfectCode\StoresConfigButton\Block\Adminhtml\System\Config\TestBasicAuth;
+
+/** @var TestBasicAuth $block */
+/** @var Escaper $escaper */
+?>
+<div data-bind="scope: 'stores-config-button-connection-test'" class="scalable">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "stores-config-button-connection-test": {
+                        "component": "PerfectCode_StoresConfigButton/js/test-connection",
+                        "url": "<?= $escaper->escapeUrl($escaper->escapeUrl($block->getAjaxUrl())) ?>",
+                        "fieldsToTest": <?= $escaper->escapeHtml(json_encode($block->getFieldsToTest() ?? [])) ?>,
+                        "buttonLabel": "<?= $escaper->escapeHtml($block->getButtonLabel() ?? 'Test Connection.') ?>",
+                        "connectionFailedMessage": "<?= $escaper->escapeHtml($block->getConnectionFailedMessage() ?? 'Connection test failed.') ?>"
+                    }
+                }
+            }
+        }
+    }
+</script>

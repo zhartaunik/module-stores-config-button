@@ -1,0 +1,35 @@
+{
+    "name": "perfect-code/module-stores-config-button",
+    "description": "A module provides a button functionality for usage in admin area. E.g. for testing connection.",
+    "require": {
+        "php": "^7.4",
+        "magento/magento-composer-installer": "*",
+        "magento/framework": "*",
+        "magento/module-backend": "*",
+        "magento/module-config": "*"
+    },
+    "suggest": {
+
+    },
+    "type": "magento2-module",
+    "version": "0.1.0",
+    "license": [
+
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "PerfectCode\\StoresConfigButton\\": ""
+        }
+    },
+    "extra": {
+        "map": [
+            [
+                "*",
+                "PerfectCode/StoresConfigButton"
+            ]
+        ]
+    }
+}
